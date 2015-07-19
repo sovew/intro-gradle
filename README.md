@@ -1,2 +1,2 @@
-# ddmgradle
+# intro-gradle
 Introdução ao Gradle
