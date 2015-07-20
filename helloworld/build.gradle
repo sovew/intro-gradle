@@ -1,24 +1,12 @@
 /*
 
-Welcome to the first exercise in ud867! Have fun, and remember that you can
-always check out the solution.gradle file for help!
+Como ainda não instalamos o Gradle ainda, nós vamos executar esta task usando
+o Gradle wrapper. O wrapper é um script que fará o download e instalação de uma
+versão específica do Gradle.
 
-In this simple Gradle build script we have defined a single task named
-"hello". As you can see, the task's action simply prints the string "Hello
-World" to the standard output.
-
-Since we haven't installed Gradle yet, we'll execute this task using the
-Gradle wrapper. The wrapper is a script that will download and install a
-specified version of Gradle.
-
-Remember that you can always look at the solution.gradle file for help!
-
-Challenges:
-  1. Find the solution.gradle file in this directory.
-  2. Use the Gradle wrapper to execute the task "hello".
-  3. Modify the action of this task so it instead prints your name.
-  4. Figure out my favorite type of candy.
-
+Exercício:
+	1. Utilizando o Gradle wrapper, baixe e instale uma versão específica do Gradle.
+	2. Execute a Task hello. 
 */
 
 task hello {
