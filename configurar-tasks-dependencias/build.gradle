@@ -1,0 +1,60 @@
+/*
+    É hora de exercitar conhecimentos sobre gerenciamento de dependencias de
+    tasks. As tasks abaixo são sobre passos necessários para a preparação
+    de um copo de café. O resultado final é estar pronto para preparar
+    e consumir ou um copo de café preto ou de café com leite.
+
+    Exercícios:
+
+    1. Configure as dependências para as tasks "preparar", "derramar" e "beber"
+    de modo que faça sentido. :)
+
+    2. Configure as dependências para as tasks "beber" e "adicionarLeite" de tal
+    forma que se estiver adicionando leite, você não deve beber o café até que 
+    tenha terminado de fazê-lo.
+
+    3. Configure as dependências para as tasks "cafePreto" e para "cafeComLeite"
+    de tal forma que ambos incluam "beber", mas que "cafeComLeite" também inclua 
+    "adicionarLeite".
+
+    4. Rode "cafePreto" e "cafeComLeite" individualmente para aferir se seus scripts
+    foram escritos corretamente.
+
+    http://gradle.org/docs/current/userguide/more_about_tasks.html#sec:ordering_tasks
+*/
+
+task preparar {
+    doLast {
+        println "Preparando. Drip, drip, drip."
+    }
+}
+
+task derramar {
+    doLast {
+        println "Derramando. Glug, glug, glug."
+    }
+}
+
+task adicionarLeite {
+    doLast {
+        println "Adicionando Leite. Stir, stir, stir."
+    }
+}
+
+task beber {
+    doLast {
+        println "Bebendo. Gulp, gulp, gulp."
+    }
+}
+
+task cafePreto {
+    doLast {
+        println "Ummm, do jeito que eu gosto."
+    }
+}
+
+task cafeComLeite {
+    doLast {
+        println "Ummm, do jeito que eu gosto."
+    }
+}
