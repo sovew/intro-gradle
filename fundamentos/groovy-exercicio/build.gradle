@@ -1,0 +1,47 @@
+/*
+
+Vamos explorar as características Groovy mais relevantes para Gradle
+build scripts. 
+
+Cada tópico está contido dentro de uma ação de uma task Gradle, 
+então, para testar, você precisará rodar as tasks. 
+
+*/
+
+task stringsAndTypes << {
+
+    // TODO: Rode `$ gradle sAT`
+    println "Nice work abbreviating the task name"
+
+
+    // TODO: Crie uma variável chamada foo e atribua a ela o valor 4.2
+
+    // TODO: Imprima o valor e a classe de foo
+
+    // TODO: Use interpolação de strings para exibir a raiz de 127
+    // Dica: http://docs.oracle.com/javase/7/docs/api/java/lang/Math.html
+
+    // TODO: Atribua a data corrente para foo e a imprima, com o seu tipo logo a seguir.
+    // Dica: http://docs.oracle.com/javase/7/docs/api/java/util/package-summary.html
+
+    // TODO: Utilize substring para extrair Jeremy da seguinte string:
+    def hello = "Hello, Jeremy.";
+
+    
+
+}
+
+task closures << {
+    // TODO: Declare uma closure que pega dois argumentos e os soma.
+    // DICA: http://www.groovy-lang.org/closures.html
+
+    // TODO: Chama sua closure com os argumentos 17 e 25, e imprima o resultado.
+    // Cuidado: `println addTwo 17, 25` é ambíguo.
+}
+
+task lists << {
+    // TODO: Declare uma lista com 5 strings
+
+    // TODO: Print cada string com letras maiusculas
+
+}

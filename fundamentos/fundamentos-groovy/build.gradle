@@ -1,0 +1,116 @@
+/*
+
+
+Gradle fornece sua própria distribuição Groovy, então não precisamos instalá-la.
+Podemos começar simplesmente colocando nosso código Groovy no build.gradle.
+
+Vamos declarar uma task chamada 'groovy'.
+
+Para rodar essa task, basta rodar:
+
+    $ gradle groovy
+
+*/
+
+task groovy << {}
+
+println "Hello Groovy!"
+
+/*
+
+Código válido Java, também é válido em Groovy.
+
+*/
+
+//class JavaGreeter {
+//    public static void sayHello() {
+//        System.out.println("Hello Java!");
+//    }
+//}
+
+//JavaGreeter greeter = new JavaGreeter()
+//greeter.sayHello()
+
+/*
+
+
+Tipagem dinamica.
+
+*/
+
+//def foo = 6.5
+
+/*
+
+Interpolação de strings
+
+*/
+
+//println "foo has value: $foo"
+
+//println "Let's do some math. 5 + 6 = ${5 + 6}"
+
+/*
+
+Podemo reatribuir em uma variável para um tipo diferente.
+
+*/
+
+//println "foo is of type: ${foo.class} and has value: $foo"
+//foo = "a string"
+//println "foo is now of type: ${foo.class} and has value: $foo"
+
+/*
+
+Parenteses não são necessários
+
+*/
+
+//def doubleIt(n) {
+//    n + n // não há comando 'return'
+//}
+
+/*
+
+Não precisamos especificar o tipo dos parametros nem de retorno. 
+O valor retornado corresponde a última expressão.
+
+*/
+
+//foo = 5
+//println "doubleIt($foo) = ${doubleIt(foo)}"
+
+/*
+
+Podemos somar strings, pois o sinal '+' foi sobrecarregado.
+
+*/
+
+//foo = "foobar"
+//println "doubleIt($foo) = ${doubleIt(foo)}"
+
+/*
+
+Vamos definir novas funções para chamá-las sem parenteses.
+*/
+
+//def noArgs() {
+//    println "Chamada função sem args"
+}
+
+//def oneArg(x) {
+//    println "Chamada função com 1 arg: $x"
+//    x
+//}
+
+//def twoArgs(x, y) {
+//    println "Chamada função com 2 args: $x e $y"
+//    x + y
+//}
+
+//oneArg 500 // legal! Sem parenteses.
+//twoArgs 200, 300
+//noArgs()
+//noArgs // não funciona
+//twoArgs oneArg 500, 200 // não funciona
+//twoArgs oneArg(500), 200 // não funciona

@@ -1,1 +1,1 @@
-Check out the build.gradle to find your instructions for this exercise!
+Veja build.gradle para visualizar instruções.
