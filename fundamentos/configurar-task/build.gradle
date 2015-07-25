@@ -1,17 +1,66 @@
 /*
 
-É hora de você criar sua primeira task de Gradle. Certifique-se de que você rodou
-sua task depois de cada exercício para garantir que seu script de build em Gradle está
-formatado apropriadamente.
+Todas as keyworks do Gradle DSL são propriedades ou métodos de objeto project.
 
-Exercícios:
-
-1. Crie uma definição de task vazia. 
-2. Dê uma descrição a sua task.
-3. Cria uma ação para sua task que imprima "Hello World".
-
-Dica: Dê uma olhada na referência da linguagem de domínio específico (DSL) para Gradle:
-
-http://gradle.org/docs/current/dsl/org.gradle.api.Task.html#org.gradle.api.Task:description
+Por exemplo, o objeto project possui um método chamado task para declarar tasks.
 
 */
+
+project.task("myTask1")
+
+task("myTask2")
+
+task "myTask3"
+
+
+Here we have the standard way to declare a task. Since the task is a Groovy
+object we can set its properties and access its methods. Let's add a
+description and a group to this task.
+
+*/
+
+myTask3.description = "Descrição da minha task"
+myTask3.group = "Grupo da minha task"
+
+/*
+
+A propriedade mais importante de uma task é sua lista de ações. 
+
+Ao invés de utilizar a propriedade actions, podemos adicionar um
+closure para o final da lista de ações, usando o método 'doLast'
+
+*/
+
+myTask3.doLast {println "Do this last"}
+
+/*
+
+Podemos usar 'doFirst também'
+
+*/
+
+myTask3.doFirst {println "Do this last"}
+
+/*
+
+Podemos adicionar ações usando o operador leftShift também.
+
+*/
+
+myTask3 << {println "Faça isso por último."}
+
+/*
+
+Podemos também atribuir as propriedades e declarar a task ao mesmo tempo
+
+*/
+
+task myTask6 {
+    description "Here's a task with a configuration block"
+    group "Some group"
+    doLast {
+        println "Here's the action"
+    }
+}
+
+
