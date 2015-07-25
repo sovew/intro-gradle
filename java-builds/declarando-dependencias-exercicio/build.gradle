@@ -1,0 +1,19 @@
+/*
+
+Exercícios:
+
+1. Configure Maven Central como repositório
+2. Adicione uma dependencia para a configuração 'compile' para a última versão de commons-io.
+	Dica: Você pode buscar por dependências disponíveis no site do Maven Central: http://search.maven.org/.
+3. Adicione uma dependência que inclua todos os jars do diretório libs.
+4. Rode a task printDependencies para verificar as dependências.
+5. Rode a task printDependencies com a flag --refresh-dependencies.
+6. Rode a task printDependencies novamente e observe a diferença no tempo de execução.
+
+*/
+
+apply plugin: 'java'
+
+task printDependencies << {
+    configurations.compile.each { println it.name }
+}

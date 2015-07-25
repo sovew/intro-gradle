@@ -1,0 +1,17 @@
+/*
+
+Exercícios:
+
+1. Adicione uma dependecia de teste para a última versão do "junit"
+2. Rode os testes unitários.
+3. Utilize os relatórios de testes para identificar os testes que falharam.
+4. Conserte o código.
+5. Rode os testes novamente.
+
+ */
+
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}

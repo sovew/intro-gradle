@@ -1,0 +1,62 @@
+/*
+
+Aplicar o plugin Java é simples, basta adicionar uma linha em neosso script/
+
+*/
+
+apply plugin: "java"
+
+/*
+
+Agora, se rodarmos:
+
+    gradle tasks --all
+
+Veremos uma série de tarefas que o Gradle pode realizar por nós, das quais quatro se
+destacam:
+- assemble;
+- check;
+- build; 
+- clean.
+
+Assemble cria a saída que estamos interessados - geralmente um JAR.
+Check roda quaisquer tests que configurarmos.
+Build depende de ambos, assemble e check.
+Clean deleta todo output do build.
+
+Ao rodar:
+
+    gradle assemble
+
+No diretório build/ será colocado nosso Person.class compilado, e o JAR.
+
+*/
+
+
+task execute(type: JavaExec) {
+    main = "com.una.ddm.gradle.Pessoa"
+    // We'll talk about this shortly
+    classpath = sourceSets.main.runtimeClasspath
+}
+
+/*
+
+The `main` property tells the JavaExec task the path of your main class, and
+we'll talk more about the classpath very shortly.
+
+There's a number of resources that it would be a great idea to take a look at.
+The first is the Gradle Java Quickstart guide
+
+https://www.gradle.org/docs/current/userguide/tutorial_java_projects.html
+
+The Gradle user guide also has much more in-depth documentation on the Gradle
+plugin:
+
+https://www.gradle.org/docs/current/userguide/java_plugin.html
+
+Finally, check out the Gradle DSL reference for more info on the JavaExec task
+type:
+
+https://gradle.org/docs/current/dsl/org.gradle.api.tasks.JavaExec.html
+
+*/

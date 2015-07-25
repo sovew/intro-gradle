@@ -1,0 +1,52 @@
+/*
+
+Para criar dependências para um projeto Java em Gradle, primeiro precisamos 
+declarar os repositórios de onde serão recuperadas as dependencias.
+
+A espécie mais básica de repositório é simplesmente um diretório, cheio de JARs. 
+Para Gradle, cada diretório desse tipo é um “flatDir”.
+
+
+*/
+
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+/*
+
+para adicionar repositórios comumente usados:
+
+*/
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+    jcenter()
+}
+
+/*
+
+Gradle também suporta repositórios gerenciados Maven e Ivy.
+
+*/
+
+repositories {
+    maven {
+        url 'https://repo.foo.org/m2'
+    }
+}
+
+
+repositories {
+    ivy {
+        url 'https://repo.foo.org/ivy'
+        credentials {
+            username 'user'
+            password 'secret'
+        }
+    }
+}
+

@@ -1,0 +1,22 @@
+/*
+
+Temos um código fonte em src/ que precisa de dependencias para compilar. 
+
+Exercícios:
+
+1. Crie uma nova configuração custom chamada 'deps'.
+2. Faça a configuração 'compile' extender de 'deps'.
+	Dica: Veja a referência sobre configurações para saber como fazer uma configuração estender de outra:
+	http://gradle.org/docs/current/dsl/org.gradle.api.artifacts.Configuration.html
+
+3. Adicione uma dependência para a última versão do google guava.
+4. Rode a task assemble.
+
+
+*/
+
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}

@@ -1,0 +1,56 @@
+/*
+
+Gradle fornece duas formas de exibição de dependências: 
+1. grafo completo de dependências.
+2. dependencyInsight - que mostra como uma dependencia em particular foi incluída em seu projeto.
+
+*/
+
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.springframework:spring-core:4.1.1.RELEASE'
+}
+
+/*
+
+Visualizamos o grafo completo dependencias ao rodar a task dependencies.
+
+    $ gradle dependencies
+
+
+Gradle exibe as dependencias do projeto, incluindo dependencias transitivas. o relatorio tambem 
+quebra dependencias as dependencias por configurações.
+
+O relatório "dependencyInsight" mostra como uma dependencia em particular foi incluída em seu projeto. 
+Este é especialmente importante quando queremos identificar conflitos de versões.
+
+Exemplo de uso:
+
+    $ gradle dependencyInsight --dependency commons-logging
+
+
+Vamos introduzir um conflito de versões de dependencias para verificar como isso afeta a saída dos relatórios:
+Adicionaremos uma dependencia para versão 1.2 de commons-logging em nosso projeto.
+
+
+dependencies {
+    compile 'commons-logging:commons-logging:1.2'
+}
+
+
+
+Vamos rodar a task dependencies novamente.
+
+    $ gradle dependencies
+
+e vamos rodar também a task dependencyInsight.
+
+    $ gradle dependencyInsight --dependency commons-logging
+
+
+*/

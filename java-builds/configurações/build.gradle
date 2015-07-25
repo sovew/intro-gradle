@@ -1,0 +1,50 @@
+/*
+
+Diferentes Dependências podem ser necessários em diferentes tempos no seu processo de build.
+Dependencias relacionadas logicamente são agrupadas em configurações. 
+Até agora, temos adicionado as dependências somente na configuração 'compile',
+mas o plugin java cria outras configurações também, como 'runtime', 'testCompile' e 
+'testRuntime'. O plugin Java garante que as dependencias especificadas estão no classpath quando
+a task correspondente é executada.
+
+*/
+
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'commons-logging:commons-logging:1.1.3'
+    testCompile 'junit:junit:4.11'
+}
+
+/*
+
+
+Configurações podem estender outras configurações. Por exemplo,
+'testCompile' estende 'compile'. Veja:
+
+    $ gradle dependencies
+
+
+Em uma build mais avançada, podemos criar uma configuração custom. 
+Basta colocar o nome da configuração dentro de um bloco de script de configuration:
+*/
+
+configurations {
+    custom
+}
+
+dependencies {
+    custom 'com.google.guava:guava:18.0'
+}
+
+/*
+
+Veja:
+
+    $ gradle dependencies
+
+

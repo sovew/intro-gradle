@@ -1,0 +1,24 @@
+/*
+
+Na maioria das vezes, as configurações default do plugin Java são suficientes para nossos projetos, 
+mas as vezes, convém algumas configurações adicionais.
+
+Exercícios:
+
+1. Aplique o plugin Java em sua build.
+2. Modifique a task 'jar' para adicionar o atributo Manifest nomeado “Implementation-Version”
+com o valor 1.0.
+3. Configure o source principal “main source” de tal modo que inclua o diretório ‘java’ como um diretório fonte adicional. 
+4. Execute o gradle para construir o seu JAR.
+5. Confire se no seu JAR contém o diretório Java adicionado.
+
+Dica 1: Veja a documentação do Gradle para a task Jar para verificar como modificar o Manifest gerado.
+http://gradle.org/docs/current/dsl/org.gradle.api.tasks.bundling.Jar.html
+
+Dica 2: Verifique também como adicionar fontes:
+http://gradle.org/docs/current/userguide/java_plugin.html#sec:source_sets
+
+*/
+
+task Jar(type: Jar)
+
