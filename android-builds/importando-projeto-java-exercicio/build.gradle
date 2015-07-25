@@ -1,0 +1,22 @@
+/*
+
+Exercícios:
+
+1. Aplique o plugin Java para o seu projeto.
+2. Sincronize e projeto gradle com o modelo de projeto do Android Studio. 
+3. Navegue pelas tasks através do painel do Gradle do Android Studio
+4. Aplique o plugin "Application" em seu projeto. 
+5. Use este plugin para compilar e rodar JokeTeller.
+
+Dica: http://gradle.org/docs/current/userguide/application_plugin.html
+
+
+*/
+
+apply plugin: 'java'
+apply plugin: 'application'
+
+mainClassName = "com.udacity.gradle.JokeTeller"
+
+
+//apply from: "solution.gradle"

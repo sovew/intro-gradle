@@ -1,0 +1,39 @@
+task contarPiada << {
+    println "Qual é a banda favorita do mestre das builds?"
+    println "Gradle of Filth!"
+}
+
+task contarOutraPiada <<{
+    println "O que são 4 pontinhos pretos cozinha?"
+    println "Fourmigas."
+}
+
+/*
+
+Note that to get Android Studio to recognize this new task, we need to trigger
+a sync between Gradle and Android Studio's internal model of our project. We
+can do that either by clicking on the blue circular arrows in the Gradle pane,
+or by clicking on the toolbar icon with the Gradle logo and Blue arrow.
+
+Now Android studio recognizes our new task, and we can run it from the Gradle
+pane.
+
+A moment ago, we just had a build.gradle file, and now we've got a directory
+totally full of obscure files and directories. Unfortunately IDEs tend to do
+that. Let's take a look at the various files, and figure out why they're all
+there.
+
+The .gradle directory is where Gradle stores information for incremental build
+support. The .idea directory is where Android Studio stores its model of your
+project. The build directory is where your build outputs would go, if this
+build generated any. For now it's just holding onto some information related
+to the synchronization between Gradle's project model and Android Studio's
+project model. Finally, you know the gradle directory. That's where the
+wrapper jar and properties are stored.
+
+In the root folder, we have the .iml file, which stores more information on
+Android Studio's project model. We have our build.gradle file, and the
+familiar wrapper scripts. We also have local.properties file that Gradle will
+use later to find the location of the Android SDK.
+
+*/

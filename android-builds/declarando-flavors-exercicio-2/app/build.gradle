@@ -1,0 +1,40 @@
+/*
+
+Exercícios:
+
+1. Importe o projeto no Android Studio.
+2. Faça o build e deploy em seu dispositivo (ou emulador).
+3. Declare flavors gratuitos e pagos,  e replique MainActivity sobre todos os flavors.
+4. Faça o Build e deploy de ambos os flavors de seu app, e confirme que tudo ainda funciona.
+4. Adicione uma activity para o flavor pago, que conta uma piada. Lembre-se do Manifest!
+5. Modifique a ação do botão de tal forma que chame a sua nova activity.
+6. Faça o build e deploy de ambos flavors de seu app e confirme que a nova activity está somente no flavor pago.
+
+
+*/
+
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 22
+    buildToolsVersion "22.0.1"
+
+    defaultConfig {
+        applicationId "com.udacity.gradle.flavorspecificactivity"
+        minSdkVersion 10
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:22.1.1'
+}
