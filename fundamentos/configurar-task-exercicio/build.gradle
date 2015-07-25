@@ -1,0 +1,17 @@
+/*
+
+É hora de você criar sua primeira task de Gradle. Certifique-se de que você rodou
+sua task depois de cada exercício para garantir que seu script de build em Gradle está
+formatado apropriadamente.
+
+Exercícios:
+
+1. Crie uma definição de task vazia. 
+2. Dê uma descrição a sua task.
+3. Cria uma ação para sua task que imprima "Hello World".
+
+Dica: Dê uma olhada na referência da Gradle DSL (DSL):
+
+http://gradle.org/docs/current/dsl/org.gradle.api.Task.html#org.gradle.api.Task:description
+
+*/

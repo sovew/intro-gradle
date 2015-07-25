@@ -1,0 +1,105 @@
+/*
+
+É hora de pensar nas relações entre tasks:
+
+1. `dependsOn`; 
+2. `finalizedBy`;
+3. `mustRunAfter`.
+
+
+Task A dependsOn task B se task A não pode fazer o seu trabalho sem que a B tenha 
+terminado o seu trabalho.
+
+*/
+
+task putOnSocks {
+    doLast {
+        println "Putting on Socks."
+    }
+}
+
+task putOnShoes {
+    dependsOn "putOnSocks"
+    doLast {
+        println "Putting on Shoes."
+    }
+}
+
+
+/*
+
+Note que ao rodar gradle tasks, você não verá 'putOnSocks'. Isso ocorre porque
+Gradle assume que putOnSocks existe somente para ajudar putOnShoes. 
+Você pode ainda visualizar todas as tasks rodando `gradle tasks -all`
+
+Task A é finalizedBy task B se sempre que a task A roda, task B deve rodar depois.
+Para continuar nosso exemplo, sempre que você come um café, você deve escovar os dentes. 
+
+*/
+
+task eatBreakfast {
+    finalizedBy "brushYourTeeth"
+    doLast{
+        println "Om nom nom breakfast!"
+    }
+}
+
+task brushYourTeeth {
+    doLast {
+        println "Brushie Brushie Brushie."
+    }
+}
+
+/*
+
+Suponha que as tasks A e B não possuem uma relação de dependência, mas que se você  
+se for rodar ambos você quer que a task A rode antes que a task B.
+
+Exemplo:
+
+Colocar uma fragancia não requer que você tome banho, nem tomar banho requer que você coloque
+uma fragancia, mas se você for fazer ambos, você deve tomar banho antes..
+
+*/
+
+task takeShower {
+    doLast {
+        println "Taking a shower."
+    }
+}
+
+task putOnFragrance {
+    shouldRunAfter "takeShower"
+    doLast{
+        println "Smellin' fresh!"
+    }
+}
+
+/*
+
+Agora rode `gradle putOnFragrance takeShower`
+
+Podemos também declarar múltiplas dependências
+
+*/
+
+task getReady {
+    // Remember that when assigning a collection to a property, we need the
+    // equals sign
+    dependsOn = ["takeShower", "eatBreakfast", "putOnShoes"]
+}
+
+/*
+
+Oops, nós colocamos nossos sapatos antes de tomar banho
+
+*/
+
+putOnShoes.shouldRunAfter takeShower
+
+
+/*
+
+    Mais sobre tasks: https://gradle.org/docs/current/userguide/more_about_tasks.html
+
+*/
