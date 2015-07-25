@@ -1,0 +1,57 @@
+/*
+
+    Nesta série de exercícios, você congurará tasks para copiar e deletar arquivos.
+
+    1. Crie uma task chamada "copyWeb". Esta task deve executar da seguinte forma: 
+        a) Copiar arquivos de src/web para build/web.
+        b) Copiar todos os .txt de "src/docs para "buid/web/help"
+
+    2. Crie uma task chamada "bundleWeb". Esta task deve executar da seguinte forma:
+        a) Criar um arquivo zip localizado na pasta build chamado "web.zip".
+        b) Incluir todos arquivos copiados por "copyWeb", exceto o diretório "images".
+
+    3. Crie uma task chamada "unpackBundle". Esta task deve executar da seguinte forma:
+        a) Extrair do arquivo zip criado por bundleWeb.
+        b) Copiar o conteúdo para uma pasta "build/exploded".
+
+    Dica: Não há uma task "Unzip", então que tipo de task você precisa?
+
+    4. Crie uma task chamada "deleteHelp". Esta task deve executar da seguinte forma:
+        a) Deletar a pasta "help", criada por "copyWeb".
+*/
+
+task copyWeb (type: Copy) {
+    from('src/web'){
+        into 'web'
+    }
+
+    from('src/docs'){
+        include 'src/docs/*.txt'
+        into 'web/help'
+    }
+
+    into 'build'
+}
+
+task bundleWeb(type: Zip) {
+    dependsOn(copyWeb)
+    baseName = 'web'
+    destinationDir = file('build')
+    from ('src/') {
+        exclude('web/images')
+    }
+}
+
+
+task unpackBundle(type: Copy){
+    dependsOn(bundleWeb)
+    def zipFile = file('build/web.zip')
+    def outputDir = file('build/exploded')
+      from zipTree(zipFile)
+    into outputDir
+}
+
+
+
+
+

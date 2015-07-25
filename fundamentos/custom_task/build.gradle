@@ -1,0 +1,19 @@
+/*
+
+
+Exercises:
+
+1. Defina uma classe chamada HelloTask
+2. Defina uma taskAction para sua nova task, que simplesmente imprime "Executando minha 
+custom task"
+3. Crie uma nova instancia de task do tipo HelloTask. 
+4. Rode essa nova task.
+
+5. Crie uma classe chamada Unzip.
+6. Defina umas taskAction que recebe como parâmetro o caminho para um arquivo para 
+descompactar e outro parâmetro para indicar onde colocar os arquivos extraídos.
+7. Crie uma nova instancia de task do tipo Unzip.
+8. Rode essa nova task.
+
+
+*/

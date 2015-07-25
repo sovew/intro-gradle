@@ -1,0 +1,31 @@
+/*
+
+Exercícios:
+
+1. Adicione linhas de logging no início e no final para a taskAction de HelloTask, de 
+nível INFO.   
+2. Execute a task "hello" com as opções de linha de comando apropriadas, de tal forma 
+que nossas linhas de logging de nível INFO sejam exibidas.
+3. Modifique a chamada println() para uma linha de loggin de nível LIFECYCLE.
+4. Rode hello e confirme a saída.
+5. Rode hello que opções de linha de comando de tal modo que o texto "Hello World" não seja mais exibido na saída.
+6. Descomente e rode "derpy" utlizando a opção "--stacktrace" e encontre o erro.
+   the error.
+7. Logue "Pegue-me se for capaz"a nível DEBUG, então encontre esta frase no stacktrace.
+
+*/
+
+task hello(type: HelloTask)
+
+class HelloTask extends DefaultTask {
+    @TaskAction
+    void doAction() {
+        println 'Hello World'
+    }
+}
+
+/*
+task derpy << {
+    primp "Herp de derp"
+}
+*/

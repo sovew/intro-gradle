@@ -1,0 +1,20 @@
+/* Agora vamos praticar as diferentes maneiras de utilizar propriedades do gradle.
+
+Exercícios:
+
+1. Rode  a task "bundleWeb" e observe o erro exibido pelo Gradle.
+
+2. Adicione a propriedade apropriade em gradle.properties para que bundleWeb consiga criar um arquivo zip em uma pasta build.
+
+3. Rode a task "bundleWeb" passando o valor "build2" para a propriedade "webOutputDir".
+
+4. Defina uma propriedade extra cujo valor determina o nome do arquivo zip criado em "bundleWeb"
+
+*/
+
+task bundleWeb(type: Zip) {
+    baseName = 'web'
+    destinationDir = file(webOutputDir)
+
+    from 'src/web'
+}

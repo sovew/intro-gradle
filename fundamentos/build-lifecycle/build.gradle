@@ -1,0 +1,28 @@
+/*
+Exercícios:
+
+1. Rode a task "help" e observe a saída.
+2. Rode a task "first" e observe a saída.
+3. Rode a task "second" e observe saída.
+
+*/
+
+println 'Primeiro elemento de script a nível top.'
+
+task first {
+    println 'Primeira task: Configuração'
+
+    doLast {
+        println 'Primeira task: Ação'
+    }
+}
+
+task second(dependsOn: first) {
+    println 'Segunda task: Configuração'
+
+    doLast {
+        println 'Segunda task: Ação'
+    }
+}
+
+println 'Primeiro elemento de script a nível top.'

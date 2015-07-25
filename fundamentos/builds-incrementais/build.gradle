@@ -1,0 +1,40 @@
+/* 
+
+Agora vamos explorar o suporte do Gradle a builds incrementais.
+
+Depois de cada exercício, observe a saída do build.
+
+Lembre-se, tasks marcadas como UP-TO-DATE são "puladas".
+
+
+Exercícios:
+
+1. Rode a task "copySources", que copia de "src" para "build/out"
+2. Rode a task "copySources" novamente e observe que agora está UP-TO-DATE.
+3. Modifique o conteúdo de um dos arquivos em "src"
+4. Rode a task "copySources" novamente e observe que não está mais UP-TO-DATE.
+5. Remova o diretório "build".
+6. Rode a task "copySources" novamente e observe que não está mais UP-TO-DATE.
+7. Rode a task "bundleSources". Observe que a task "copySources" ainda está UP-TO-DATE. 
+8. Rode a task "bundleSources" novamente e observe que está UP-TO-DATE.
+9. Remova o arquivo "build/sources.zip".
+10. Rode a task "bundleSources" novamente e observe que não está mais UP-TO-DATE.
+11. Modifique o conteudo de um dos arquivos em "src"
+12. Rode a task "bundleSources" novamente e observe nenhuma task está UP-TO-DATE.
+13. Rode a task "bundleSources" novamente e observe que ambos agora estão UP-TO-DATE.
+14. Remova o diretório "build/out".
+15. Rode a task "bundleSources" novamente e observe que somente "bundleSources" está UP-TO-DATE.
+
+*/
+
+task copySources(type: Copy) {
+    from 'src'
+    into 'build/out'
+}
+
+task bundleSources(type: Zip, dependsOn: copySources) {
+    baseName = 'sources'
+    destinationDir = file('build')
+
+    from 'build/out'
+}
