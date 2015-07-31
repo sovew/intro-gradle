@@ -15,33 +15,58 @@ task stringsAndTypes << {
 
 
     // TODO: Crie uma variável chamada foo e atribua a ela o valor 4.2
+    def foo= 4.2;
+
 
     // TODO: Imprima o valor e a classe de foo
+    println(foo)
+    println(foo.class)
 
     // TODO: Use interpolação de strings para exibir a raiz de 127
     // Dica: http://docs.oracle.com/javase/7/docs/api/java/lang/Math.html
+    foo = Math.sqrt(127);
+    println("a rais de 127 eh $foo");
+
 
     // TODO: Atribua a data corrente para foo e a imprima, com o seu tipo logo a seguir.
     // Dica: http://docs.oracle.com/javase/7/docs/api/java/util/package-summary.html
+    foo = new Date();
+    println(foo);
 
     // TODO: Utilize substring para extrair Jeremy da seguinte string:
     def hello = "Hello, Jeremy.";
+    println(hello.substring(6,13));
 
-    
 
 }
 
 task closures << {
     // TODO: Declare uma closure que pega dois argumentos e os soma.
     // DICA: http://www.groovy-lang.org/closures.html
+    def somaIt = {x, y -> x + y};
+    println(somaIt(2,2));
 
     // TODO: Chama sua closure com os argumentos 17 e 25, e imprima o resultado.
     // Cuidado: `println addTwo 17, 25` é ambíguo.
+    println(somaIt(17,25));
 }
 
 task lists << {
     // TODO: Declare uma lista com 5 strings
+    def lista = {"teste1","teste2","teste3","teste4","teste5"}
 
     // TODO: Print cada string com letras maiusculas
+    for (int i =0; i< lista.length;i++){
+        //println(lista[i].substring(0))
 
+
+
+        //def w = lista[i]
+
+       // w = w.substring(0,1).toUpperCase() + w.substring(1, w.length());
+        //def resultado = Character.toUpperCase(w.charAt(0)) + w.substring(1);
+        //println(w);
+        //lista[i].Character.toUpperCase(input.charAt(0)) + input.substring(1);
+    }
 }
+
